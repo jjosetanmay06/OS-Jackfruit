@@ -207,3 +207,31 @@ Two cpu_hog containers launched simultaneously:
 | io1       | I/O-bound | ~0%   | Sleeps 1s between each I/O cycle |
 
 **Analysis:** `io_pulse` completes exactly 1 cycle per second regardless of CPU competition because it spends 99%+ of its time in `sleep()`. CFS does not accumulate `vruntime` for sleeping processes, so when `io_pulse` wakes it has very low `vruntime` and is scheduled immediately. This demonstrates CFS's implicit I/O-bound favoritism: processes that voluntarily yield the CPU are rewarded with low scheduling latency when they next become runnable. `cpu_hog` dominates CPU only because `io_pulse` does not want it.
+
+---
+
+## Screenshots
+
+### 1. Multi-container supervision
+![multi-container](screenshots/01-multi-container.png)
+
+### 2. Metadata tracking
+![ps-metadata](screenshots/02-ps-metadata.png)
+
+### 3. Bounded-buffer logging
+![logging](screenshots/03-logging.png)
+
+### 4. CLI and IPC
+![cli-ipc](screenshots/04-cli-ipc.png)
+
+### 5. Soft-limit warning
+![soft-limit](screenshots/05-soft-limit.png)
+
+### 6. Hard-limit enforcement
+![hard-limit](screenshots/06-hard-limit.png)
+
+### 7. Scheduling experiment
+![scheduling](screenshots/07-scheduling.png)
+
+### 8. Clean teardown
+![teardown](screenshots/08-teardown.png)
