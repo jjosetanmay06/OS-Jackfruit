@@ -230,9 +230,10 @@ Two cpu_hog containers launched simultaneously:
 
 ### 6. Hard-limit enforcement
 ![hard-limit](screenshots/06-hard-limit.png)
-
+![Memory Monitor](screenshots/Screenshot%20from%202026-04-24%2008-24-48.png)
 ### 7. Scheduling experiment
 ![scheduling](screenshots/07-scheduling.png)
 
 ### 8. Clean teardown
 ![teardown](screenshots/08-teardown.png)
+
